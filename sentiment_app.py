@@ -11,7 +11,7 @@ st.title("評論留言情緒分析 Web")
 st.write("請在下方輸入你的文字，系統將評估該文字的情緒（正向或負向）")
 
 # 輸入區：使用者輸入文字
-user_input = st.text_area("請輸入影評或文字：", height=150)
+user_input = st.text_area("請輸入評論或留言：", height=150)
 
 # 點擊按鈕後進行預測
 if st.button("開始分析"):

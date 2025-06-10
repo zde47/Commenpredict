@@ -4,4 +4,4 @@
 
 referance：https://github.com/Ankit152/IMDB-sentiment-analysis
 
-app link：https://commenpredict-pbm8hsuoqw3ksc9fayrlz4.streamlit.app/
+app link：https://commenpredict-pbm8hsuoqw3ksc9fayrlz4.streamlit.app

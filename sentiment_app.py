@@ -3,7 +3,7 @@ from transformers import pipeline
 
 # 建立情緒分析 pipeline（我們預設使用 distilbert-base-uncased-finetuned-sst-2-english）
 st.info("載入模型中，請稍候...")
-classifier = pipeline("sentiment-analysis")
+classifier = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english", revision="af0f99b")
 st.success("模型已載入！")
 
 # 頁面標題與說明

@@ -1,6 +1,6 @@
-streamlit
-transformers==4.33.3
-torch==2.5.0
+streamlit==1.45.1
+transformers==4.30.2
+torch==2.0.1
 pandas
 numpy
 requests

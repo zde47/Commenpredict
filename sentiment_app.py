@@ -18,7 +18,7 @@ try:
     classifier = pipeline(
         "sentiment-analysis",
         model="distilbert-base-uncased-finetuned-sst-2-english",
-        device=-1,  # 使用 CPU 避免 meta tensor 問題
+        device=0,  # 使用 CPU 避免 meta tensor 問題
         framework="pt"
     )
     st.success("✅ 模型載入完成！")

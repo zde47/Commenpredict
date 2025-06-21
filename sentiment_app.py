@@ -37,7 +37,7 @@ if st.button("開始分析"):
             try:
                 result = classifier(user_input)
                 label = result[0]["label"]
-                score = result[0]["score"]
+                score = float(result[0]["score"])
                 emoji = "👍" if label == "POSITIVE" else "👎"
                 st.success(f"{emoji} 預測結果：**{label}**（信心值：{score:.2%}）")
             except Exception as e:

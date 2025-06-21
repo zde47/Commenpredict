@@ -1,24 +1,43 @@
 import streamlit as st
 from transformers import pipeline
 
-# 建立情緒分析 pipeline（我們預設使用 distilbert-base-uncased-finetuned-sst-2-english）
+
+st.set_page_config(
+    page_title="留言情感分析器",
+    page_icon="🧠",
+    layout="centered"
+)
+
+
 st.info("載入模型中，請稍候...")
-classifier = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english", revision="af0f99b")
-st.success("模型已載入！")
+try:
+    classifier = pipeline(
+        "sentiment-analysis",
+        model="distilbert-base-uncased-finetuned-sst-2-english",
+        revision="af0f99b"
+    )
+    st.success("✅ 模型載入完成！")
+    st.caption("模型來源：Hugging Face（distilbert-base-uncased-finetuned-sst-2-english）")
+except Exception as e:
+    st.error(f"❌ 模型載入失敗：{e}")
+    st.stop()
 
-# 頁面標題與說明
-st.title("評論留言情緒分析 Web")
-st.write("請在下方輸入你的文字，系統將評估該文字的情緒（正向或負向）")
+st.title("📝 留言情感分析 Web App")
+st.write("請在下方輸入留言文字，系統將判斷其情緒為 **正面** 或 **負面**，並顯示信心分數。")
 
-# 輸入區：使用者輸入文字
-user_input = st.text_area("請輸入評論或留言：", height=150)
+user_input = st.text_area("✏️ 請輸入一段留言內容：", height=150)
 
-# 點擊按鈕後進行預測
+
 if st.button("開始分析"):
     if user_input.strip() == "":
-        st.error("請先輸入一些文字再進行分析！")
+        st.warning("⚠️ 請先輸入一些文字再進行分析！")
     else:
-        st.info("正在分析中...")
-        result = classifier(user_input)
-        st.write("分析結果：")
-        st.json(result)
+        with st.spinner("模型正在分析中，請稍候..."):
+            try:
+                result = classifier(user_input)
+                label = result[0]["label"]
+                score = result[0]["score"]
+                emoji = "👍" if label == "POSITIVE" else "👎"
+                st.success(f"{emoji} 預測結果：**{label}**（信心值：{score:.2%}）")
+            except Exception as e:
+                st.error(f"❌ 發生錯誤：{e}")

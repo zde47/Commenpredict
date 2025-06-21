@@ -14,8 +14,9 @@ try:
     classifier = pipeline(
         "sentiment-analysis",
         model="distilbert-base-uncased-finetuned-sst-2-english",
-        revision="af0f99b"
+        device=-1  # 使用 CPU
     )
+
     st.success("✅ 模型載入完成！")
     st.caption("模型來源：Hugging Face（distilbert-base-uncased-finetuned-sst-2-english）")
 except Exception as e:

@@ -28,7 +28,7 @@ except Exception as e:
     st.stop()
 
 # 標題與說明
-st.title("📝 留言情感分析 Web App")
+st.title("📝 留言情感分析網頁 App")
 st.write("請在下方輸入留言文字，系統將判斷其情緒為 **正面** 或 **負面**，並顯示信心分數。")
 
 # 使用者輸入

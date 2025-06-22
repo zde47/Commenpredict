@@ -2,7 +2,7 @@
 
 簡單評論正負面預測網頁應用
 
-referance：https://github.com/Ankit152/IMDB-sentiment-analysis
+referance：[https://github.com/Ankit152/IMDB-sentiment-analysis](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english)
 
 app link：https://commenpredict-pbm8hsuoqw3ksc9fayrlz4.streamlit.app
 
